@@ -1,0 +1,124 @@
+﻿NAME,ADDRESS,LAT,LON,Doctor's Name,Disease,Specialist
+"Apollo Hospitals, Chennai",1025 NORTH DOUTY STREET,10.21,79.25,Dr. A. P. J. Abdul Kalam,Fungal infection , Dermatologist
+"Fortis Malar Hospital, Chennai",150 VIA MERIDA,8.43,77.29,Dr. R. S. Saravanakumar,Fungal infection , Dermatologist
+"Sri Ramachandra Medical Centre, Chennai",4060 WHITTIER BOULEVARD,21.5,78.45,Dr. S. V. S. Kumar,Fungal infection , Dermatologist
+"Sankara Nethralaya, Chennai",6245 DE LONGPRE AVENUE,10.24,76.4,Dr. A. S. Shantharam,Allergy ,Immunologist
+"MIOT International, Chennai",14148 FRANCISQUITO AVENUE,13.05,79.43,Dr. M. R. S. Murthy,Allergy ,Immunologist
+"Madras Medical Mission, Chennai",3700 EAST SOUTH STREET,10.1,79.02,Dr. N. R. Ramesh,Allergy ,Immunologist
+"Kavery Medical Centre, Chennai",323 SOUTH HELIOTROPE AVENUE,12.56,79.24,Dr. K. G. Raghunathan,GERD ,Gastroenterologist
+"Global Health City, Chennai",900 SOUTH ATLANTIC BOULEVARD,12.4,79.19,Dr. R. N. Raghavendra,GERD ,Gastroenterologist
+"GEM Hospital, Coimbatore",4025 WEST 226 STREET,9.31,78.08,Dr. A. K. S. Seshadri,GERD ,Gastroenterologist
+"PSG Hospitals, Coimbatore",730 MAGNOLIA AVENUE,11.36,78.39,Dr. J. A. Rajesh,Chronic cholestasis ,Gastroenterologist
+"Sri Ramakrishna Hospital, Coimbatore",228 MC DOWELL STREET,10.01,77.24,Dr. V. M. R. Ganesh,Chronic cholestasis,Gastroenterologist
+"C.S.I. Hospital, Coimbatore",450 EAST ROMIE LANE,10.18,79.52,Dr. P. R. K. Raghavan,Chronic cholestasis ,Gastroenterologist
+"Vijaya Hospital, Chennai",1310 THIRD STREET,12,80,Dr. T. K. S. Satyakumar,Drug Reaction,Dermatologist or Allergist
+"St. Thomas Hospital, Chennai",393 S. TUSTIN STREET,11.24,79.44,Dr. V. J. S. Ramakrishnan,Drug Reaction,Dermatologist or Allergist
+"Dr. Mehta's Hospitals, Chennai",14851 YORBA STREET,12.42,80.01,Dr. M. R. J. Kumar,Drug Reaction,Dermatologist or Allergist
+"Dr. Rela Institute and Medical Centre, Chennai",875 NORTH BREA BOULEVARD,8.04,77.36,Dr. L. R. S. Karthik,Peptic ulcer disease,Gastroenterologist
+"Kovai Medical Center and Hospital, Coimbatore",200 HOSPITAL CIRCLE,12,80.3,Dr. N. G. S. Ramesh,Peptic ulcer disease,Gastroenterologist
+"Vasan Eye Care Hospital, Chennai",1100 SO. AKERS STREET,9.57,78.53,Dr. A. P. K. Murugesh,Peptic ulcer disease,Gastroenterologist
+"Vijaya Nethralaya, Chennai",2449 THIRD STREET,9.1,79.28,Dr. J. K. Gopal,AIDS,Infectious Disease Specialist
+"Lakeshore Hospital, Cochin",600 N LEWIS AVE.,10.45,77.34,Dr. D. K. Vignesh,AIDS,Infectious Disease Specialist
+"Sree Chitra Tirunal Institute for Medical Sciences and Technology, Thiruvananthapuram",1100 EAST LOOP 304,12.08,78.13,Dr. P. G. A. Raja,AIDS,Infectious Disease Specialist
+"Government Stanley Medical College and Hospital, Chennai",242 W SHAMROCK AVE,11.25,76.46,Dr. S. A. Ganesh,Diabetes,Endocrinologist
+"Government Royapettah Hospital, Chennai",409 1ST ST,13.14,80.22,Dr. K. K. R. Venkatesh,Diabetes,Endocrinologist
+"Government Kilpauk Medical College and Hospital, Chennai",309 N MAIN ST,11.2,77.46,Dr. R. K. S. Chandrasekaran,Diabetes,Endocrinologist
+"Government Vellore Medical College and Hospital, Vellore",209 FRONT ST.,11.45,79.5,Dr. T. R. P. Suresh,Gastroenteritis,Gastroenterologist
+"Raja Muthiah Medical College and Hospital, Chidambaram",7939 HIGHWAY 165,13.04,80.17,Dr. M. V. V. S. Natarajan,Gastroenteritis,Gastroenterologist
+"Christian Medical College (CMC), Vellore",545 COOK STREET,12.57,78.55,Dr. S. P. V. N. Srinivasan,Gastroenteritis,Gastroenterologist
+"Sri Ramakrishna Hospital, Coimbatore",2776 PACIFIC AVENUE,12.44,77.52,Dr. A. S. R. Mahesh,Bronchial Asthma,Pulmonologist or Allergist
+"Mohan Kumar Mangalam Medical College, Salem",2500 MERCED STREET,12.34,78.37,Dr. C. A. A. Muthukumar,Bronchial Asthma,Pulmonologist or Allergist
+"Velammal Medical College Hospital and Research Institute, Madurai",16453 SOUTH COLORADO AVENUE,12.4,78.4,Dr. V. P. N. Subramanian,Bronchial Asthma,Pulmonologist or Allergist
+"Rani Meyyammai College of Nursing, Chennai",11401 BLOOMFIELD AVENUE,12.5,79.45,Dr. J. S. G. Aravind,Hypertension,Cardiologist or Primary Care Physician
+"Tagore Medical College and Hospital, Chennai",5383 STATE ROUTE 154,11.2,77.5,Dr. R. M. S. Mohan,Hypertension,Cardiologist or Primary Care Physician
+"Pondicherry Institute of Medical Sciences, Puducherry",11705 MERCY BOULEVARD,8.34,78.1,Dr. K. R. R. Saravanan,Hypertension,Cardiologist or Primary Care Physician
+"Sree Balaji Medical College and Hospital, Chennai",320 TURNER MCCALL BOULEVARD,9.14,78.5,Dr. N. J. K. Selvam,Migraine,Neurologist
+"Sree Sastha Medical College and Hospital, Chennai",801 W GORDON STREET,10.13,77.32,Dr. A. V. R. Kumar,Migraine,Neurologist
+"Karpaga Vinayaga Institute of Medical Sciences and Research, Kancheepuram",126 HIGHWAY 280 W,12.32,78.16,Dr. S. G. R. R. Raj,Migraine,Neurologist
+"Narayana Hrudayalaya, Chennai",6135 ROOSEVELT HIGHWAY,12.3,79.56,Dr. T. A. M. Ganesh,Cervical spondylosis,Orthopedic Specialist or Neurologist
+"Sakthi Hospital, Coimbatore",600 CELEBRATE LIFE PKWY,12.37,80.14,Dr. M. K. S. Mahesh,Cervical spondylosis,Orthopedic Specialist or Neurologist
+"Lifeline Hospital, Chennai","CALLE FERNANDEZ JUNCOS, EDIFICIO JESUS T. PINEIRO",10.4,79.29,Dr. P. A. G. Natarajan,Cervical spondylosis,Orthopedic Specialist or Neurologist
+"Sakthi Medical Centre, Coimbatore",3150 GERSHWIN DRIVE,11.06,79.42,Dr. S. R. K. Siva,Paralysis (brain hemorrhage),Neurologist or Neurosurgeon
+"Bharath Medical College and Hospital, Chennai",10000 WEST BLUEMOUND ROAD,11.18,76.59,Dr. K. V. G. Kannan,Paralysis (brain hemorrhage),Neurologist or Neurosurgeon
+"Kandhan Hospital, Tirunelveli","AVE LAUREL 100, URB. SANTA JUANITA",11.52,77.5,Dr. R. P. S. Balaji,Paralysis (brain hemorrhage),Neurologist or Neurosurgeon
+"Jaya Hospital, Chennai",6410 MASONIC DRIVE,16.5,79.2,Dr. T. S. S. Kamal,Jaundice,Gastroenterologist or Hepatologist
+"Jeevan Hospital, Chennai",4608 HIGHWAY 1,11.13,78.13,Dr. D. V. V. Ramesh,Jaundice,Gastroenterologist or Hepatologist
+"K.G. Hospital, Coimbatore",4502 HWY 951,8.29,77.44,Dr. A. S. S. Karthik,Jaundice,Gastroenterologist or Hepatologist
+"Mehta's Hospital, Chennai",3201 WALL BOULEVARD,10.31,79.24,Dr. N. R. S. Kannan,Malaria,Infectious Disease Specialist
+"Sree Abirami Hospital, Chennai",845 PARKSIDE ST,11.15,78.03,Dr. J. R. S. Mani,Malaria,Infectious Disease Specialist
+"Ramakrishna Hospital, Chennai",830 CHALKSTONE AVE,9.06,76.05,Dr. V. M. S. Sundar,Malaria,Infectious Disease Specialist
+"Ganga Hospital, Coimbatore",500 E VETERANS ST,8.43,77.46,Dr. P. S. A. Rajesh,Chicken pox,Pediatrician or Dermatologist
+"Sundaram Medical Foundation, Chennai",601 S CENTER AVE,10.59,77.02,Dr. S. G. R. Mohan,Chicken pox,Pediatrician or Dermatologist
+"Bharath Hospital and Institute of Oncology, Mysuru",2750 EUREKA WAY,12.58,80.13,Dr. K. J. M. Kumar,Chicken pox,Pediatrician or Dermatologist
+"Rani Meyyammai Hospital, Chennai",303 SOUTH C STREET,9.55,77,Dr. R. T. S. Santhosh,Dengue,Infectious Disease Specialist
+"Muthu Hospital, Chennai",580 ALSTON STREET,10,77,Dr. T. G. V. Ganesh,Dengue,Infectious Disease Specialist
+"Amma Hospital, Chennai",2295 S. VINEYARD AVENUE,11.47,79.35,Dr. M. S. S. Kumar,Dengue,Infectious Disease Specialist
+"Vinayaka Mission's Kirupanandha Variyar Medical College and Hospitals, Salem",25333 BARTON ROAD,9.31,78.39,Dr. A. J. K. S. Venkatesh,Typhoid,Gastroenterologist or Hepatologist
+"Maharaja Medical College, Thanjavur",2101 NORTH WATERMAN AVENUE,10.26,79.22,Dr. S. V. G. Arun,Typhoid,Gastroenterologist or Hepatologist
+"Sanjeevani Hospital, Coimbatore",4647 ZION AVENUE,11.14,78.56,Dr. R. M. G. Ramakrishnan,Typhoid,Gastroenterologist or Hepatologist
+"Nightingale Hospital, Chennai",10666 NORTH TORREY PINES ROAD,10.07,77.35,Dr. K. R. R. A. Subramanian,Hepatitis A,Gastroenterologist or Hepatologist
+"Sree Raghavendra Hospital, Chennai",354 SANTA FE DRIVE,10.39,77.03,Dr. D. J. G. Ganesh,Hepatitis A,Gastroenterologist or Hepatologist
+"Sri Venkateswara Hospital, Chennai",3003 HEALTH CENTER DRIVE,13.02,80.15,Dr. V. S. R. Kamal,Hepatitis A,Gastroenterologist or Hepatologist
+"Gandhi Medical College, Chennai",200 WEST ARBOR DRIVE,11.03,79.48,Dr. P. R. S. Kumar,Hepatitis B,Gastroenterologist or Hepatologist
+"Sakthi Nursing Home, Chennai",3700 CALIFORNIA STREET,10.23,78.52,Dr. S. K. S. Gopal,Hepatitis B,Gastroenterologist or Hepatologist
+"K.M.C. Hospital, Chennai",2333 BUCHANAN STREET,13.25,80.21,Dr. K. N. V. S. Raghavan,Hepatitis B,Gastroenterologist or Hepatologist
+"Sunshine Hospital, Chennai",450 STANYAN STREET,9.27,77.36,Dr. R. A. K. Gopalan,Hepatitis C,Pulmonologist or Infectious Disease Specialist
+"Noble Hospital, Chennai",401 BICENTENNIAL WAY,9.22,78.52,Dr. T. P. V. S. N. Mohan,Hepatitis C,Pulmonologist or Infectious Disease Specialist
+"Narayana Nethralaya, Chennai",975 SERENO DRIVE,9.17,79.22,Dr. M. R. K. Suresh,Hepatitis C,Pulmonologist or Infectious Disease Specialist
+"Vijaya Eye Hospital, Chennai",1325 COTTONWOOD STREET,9.01,77.35,Dr. A. V. K. Dinesh,Hepatitis D,Primary Care Physician
+"Mahalakshmi Medical Center, Chennai",3100 SUMMIT STREET,9.21,77.58,Dr. S. A. N. Selva,Hepatitis D,Primary Care Physician
+"Padhmavathy Hospital, Chennai",13855 EAST 14TH STREET,11.03,77.17,Dr. J. M. R. Siva,Hepatitis D,Primary Care Physician
+"Saraswathi Hospital, Chennai",27200 CALAROGA AVENUE,12.37,80.14,Dr. K. P. S. Raghunandan,Hepatitis E,Pulmonologist or Primary Care Physician
+"Sree Vishwa Hospital, Chennai",2510 NORTH CALIFORNIA STREET,8.59,77.18,Dr. R. N. S. Dinesh,Hepatitis E,Pulmonologist or Primary Care Physician
+"Shri Ganesh Hospital, Chennai",1800 NORTH CALIFORNIA STREET,0.12,78.03,Dr. T. S. R. Kannan,Hepatitis E,Pulmonologist or Primary Care Physician
+"Royal Care Hospital, Coimbatore",250 SOUTH GRAND AVENUE,0.13,80.14,Dr. M. A. R. Ganesh,Alcoholic hepatitis,Gastroenterologist or Colorectal Surgeon
+"Sri Venkateshwara Medical College Hospital, Chennai",1420 SOUTH CENTRAL AVENUE,8.58,77.21,Dr. A. K. G. Karthik,Alcoholic hepatitis,Gastroenterologist or Colorectal Surgeon
+"Cure and Care Hospital, Coimbatore",4867 SUNSET BOULEVARD,12.14,79.42,Dr. S. R. S. Ravi,Alcoholic hepatitis,Gastroenterologist or Colorectal Surgeon
+"St. Joseph's Hospital, Chennai",13652 CANTARA STREET,8.3,78.11,Dr. K. V. M. Narayanan,Tuberculosis,Cardiologist
+"Sree Valli Hospital, Chennai",18321 CLARK STREET,11.23,77.56,Dr. R. G. S. Mohan,Tuberculosis,Cardiologist
+"K.S. Hospital, Chennai",3160 GENEVA STREET,11.58,79.15,Dr. T. N. P. Raja,Tuberculosis,Cardiologist
+"Sri Murugan Hospital, Chennai",21530 SOUTH PIONEER BOULEVARD,9.49,79.01,Dr. M. S. V. Ganesh,Common Cold,Vascular Surgeon or Phlebologist
+"Janani Hospital, Chennai",15630 18TH AVE - HWY 53,11.05,77.2,Dr. A. P. R. Kumar,Common Cold,Vascular Surgeon or Phlebologist
+"Swasti Hospital, Chennai",9300 VALLEY CHILDREN'S PLACE,13.09,79.57,Dr. S. M. S. Rajesh,Common Cold,Vascular Surgeon or Phlebologist
+"Vasantha Hospital, Chennai",39-000 BOB HOPE DRIVE,9.45,79.04,Dr. K. J. R. V. Nair,Pneumonia,Endocrinologist
+"Raja Hospital, Chennai",2425 SAMARITAN DRIVE,11.01,79.54,Dr. R. A. M. Santhanam,Pneumonia,Endocrinologist
+"Evergreen Hospital, Chennai",700 LAWRENCE EXPRESSWAY,11.09,78.38,Dr. T. G. R. Mohan,Pneumonia,Endocrinologist
+"Noble Hospital, Chennai",725 WELCH ROAD,11.24,76.44,Dr. M. P. V. N. Prasad,Dimorphic hemorrhoids (piles),Endocrinologist
+"Mahalakshmi Hospital, Chennai",1100 VETERANS BOULEVARD,10.36,77.17,Dr. A. S. J. Kannan,Dimorphic hemorrhoids (piles),Endocrinologist
+"Harsham Hospital, Chennai",2540 EAST STREET,11.11,79.2,Dr. S. R. A. Subramanian,Dimorphic hemorrhoids (piles),Endocrinologist
+"Vishwanath Hospital, Chennai",3901 LONE TREE WAY,12.16,78.35,Dr. K. R. G. Bhuvanesh,Heart attack,Rheumatologist or Orthopedic Specialist
+"Sree Venkateswara Medical College and Hospital, Chennai",2025 MORSE AVENUE,12.41,78.39,Dr. R. M. V. Raj,Heart attack,Rheumatologist or Orthopedic Specialist
+"Narayana Hrudayalaya Multispeciality Hospital, Chennai",155 GLASSON WAY,11.57,79.32,Dr. T. V. S. K. Karthik,Heart attack,Rheumatologist or Orthopedic Specialist
+"Thulasi Hospital, Chennai",7901 WALKER STREET,9.35,77.57,Dr. M. K. G. Sundar,Varicose veins,Rheumatologist
+"Pushpavalli Hospital, Chennai",654 CAMINO DE LOS MARES,11.32,79.24,Dr. A. P. S. Dhanapal,Varicose veins,Rheumatologist
+"Raja's Hospital, Chennai",970 PLUMAS STREET,12.3,79.3,Dr. S. N. K. A. Muthu,Varicose veins,Rheumatologist
+"Saraswathi Medical Centre, Chennai",1266 EAST CHURCH STREET,11.48,78.13,Dr. K. J. G. Raghav,Hypothyroidism,Neurologist or ENT Specialist
+"Bharani Hospital, Chennai",1230 BAXTER STREET,13.084622,80.248357,Dr. R. S. V. Gokul,Hypothyroidism,Neurologist or ENT Specialist
+"Jayam Hospital, Chennai",3995 SOUTH COBB DRIVE SE,11.005547,76.966122,Dr. T. N. P. Raghavan,Hypothyroidism,Neurologist or ENT Specialist
+"Dr. Siva's Hospital, Chennai",25 WELLS ST,11.746289,79.764362,Dr. M. R. A. K. Karthik,Hyperthyroidism,Dermatologist
+"Kumar Hospital, Chennai",700 SOUTH PARK ST,10.362853,77.975827,Dr. A. V. N. R. Rajesh,Hyperthyroidism,Dermatologist
+"Noble Hospital, Tirupur",1220 DEWEY AVE,10.960277,78.076753,Dr. S. R. S. Siva,Hyperthyroidism,Dermatologist
+"Mother's Care Hospital, Chennai",13125 N PORT WASHINGTON RD,12.869617,79.719469,Dr. K. G. R. Kamal,Hypoglycemia,Urologist or Primary Care Physician
+"Mother and Child Hospital, Chennai",225 MEMORIAL DRIVE,10.959789,79.377472,Dr. R. P. M. Dinesh,Hypoglycemia,Urologist or Primary Care Physician
+"Mother Teresa Medical College and Research Institute, Pondicherry",2710 RIFE MEDICAL LANE,9.917347,78.119622,Dr. T. K. S. A. Kumar,Hypoglycemia,Urologist or Primary Care Physician
+"Aaradhana Hospital, Chennai",235 STATE STREET,8.177313,77.43437,Dr. M. N. A. S. Mohan,Osteoarthritis,Dermatologist
+"Dr. N. Subramanian Hospital, Chennai",535 HOSPITAL RD,9.451111,77.556121,Dr. A. P. S. Sundar,Osteoarthritis,Dermatologist
+"Krishna Hospital, Chennai",3100 SUPERIOR AVE,11.651165,78.158672,Dr. S. G. R. Rajesh,Osteoarthritis,Dermatologist
+"Nithya Hospital, Chennai",507 SOUTH MAIN ST,10.785233,79.139093,Dr. K. V. S. Kumar,Arthritis,Dermatologist
+"Sai Hospital, Chennai",11500 BROOKSHIRE AVENUE,10.815499,78.696513,Dr. R. N. G. S. Vasanth,Arthritis,Dermatologist
+"Sundaram Medical College, Chennai",4320 MARICOPA STREET,8.725181,77.684519,Dr. T. S. R. Venkatesh,Arthritis,Dermatologist
+"St. John’s Hospital, Chennai",11234 ANDERSON STREET,12.230204,79.072954,Dr. M. K. N. Ramesh,(vertigo) Paroxysmal Positional Vertigo,Neurologist or ENT Specialist
+"Tharun Hospital, Chennai",500 S OAKWOOD RD,8.805038,78.151884,Dr. A. J. M. K. Ganesh,(vertigo) Paroxysmal Positional Vertigo,Neurologist or ENT Specialist
+"Velammal Medical College and Hospital, Madurai","3800 RESERVOIR ROAD, NW",10.325163,76.955299,Dr. S. P. G. Kumar,(vertigo) Paroxysmal Positional Vertigo,Neurologist or ENT Specialist
+"Vivekananda Medical College, Puducherry",13100 FORT KING RD,12.905769,79.137104,Dr. K. G. N. R. Raja,Acne,Dermatologist
+"Dr. A.P.J. Abdul Kalam Hospital, Tamil Nadu",5352 LINTON BLVD,9.01,77.35,Dr. R. J. S. Arul,Acne,Dermatologist
+"Thyrocare Hospital, Chennai",325 CYPRESS PKWY,9.21,77.58,Dr. T. R. S. Suresh,Acne,Dermatologist
+"Rainbow Children's Hospital, Chennai",200 MAY STREET,11.03,77.17,Dr. M. S. P. K. Natarajan,Urinary tract infection,Urologist or Primary Care Physician
+"K.K. Hospital, Chennai",227 BABCOCK STREET,12.37,80.14,Dr. A. V. S. D. Kumar,Urinary tract infection,Urologist or Primary Care Physician
+"Vidyasagar Hospital, Chennai",1670 ST. VINCENT'S WAY,8.59,77.18,Dr. S. R. G. M. Raj,Urinary tract infection,Urologist or Primary Care Physician
+"Surya Hospital, Chennai",2275 SW 22ND LANE,0.12,78.03,Dr. K. R. S. A. Mohan,Psoriasis,Dermatologist
+"Ganesh Hospital, Chennai",189 STORRS RD,0.13,80.14,Dr. R. A. S. Kannan,Psoriasis,Dermatologist
+"Bharathi Medical College Hospital, Tamil Nadu",5850 SE COMMUNITY DR,8.58,77.21,Dr. T. J. V. Kumar,Psoriasis,Dermatologist
+"R.S. Hospital, Chennai",51 BLOSSOM ST,12.14,79.42,Dr. M. N. R. Ganesh,Impetigo,Dermatologist
+"Abirami Hospital, Chennai",300 1ST AVE,0.12,78.03,Dr. A. S. R. V. Rajesh,Impetigo,Dermatologist
+"Care Hospital, Chennai",49 HILLSIDE STREET,0.13,80.14,Dr. S. K. R. Arvind,Impetigo,Dermatologist
