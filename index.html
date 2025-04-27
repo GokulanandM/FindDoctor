@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Location Finder</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Mapbox GL JS CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px 30px; /* Add horizontal padding */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 8px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 60%;
+            max-width: 300px; /* Limit max width */
+            box-sizing: border-box; /* Include padding and border in width */
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #007bff; /* Primary blue color */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #location-status {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        #location-status.error {
+            color: #dc3545; /* Red for errors */
+            font-weight: bold;
+        }
+        #map-container {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden; /* Ensure map fits within border radius */
+            height: 500px; /* Fixed height for the map container */
+            width: 100%; /* Make it responsive within its parent */
+            box-sizing: border-box;
+            margin-top: 20px; /* Space above the map */
+        }
+         #map {
+            width: 100%;
+            height: 100%; /* Make map fill its container */
+        }
+        .map-placeholder {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+            font-size: 1.1em;
+        }
+        .marker-details {
+             font-size: 0.9em;
+             line-height: 1.4;
+             max-width: 250px; /* Slightly wider popup */
+        }
+         .marker-details strong {
+             display: block; /* Make the name a block element */
+             margin-bottom: 5px;
+             font-size: 1.1em;
+             color: #0056b3; /* Match button color */
+         }
+         .marker-details p {
+             margin: 0 0 5px 0;
+         }
+        .marker-details .route-info {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #eee;
+            font-size: 0.85em;
+            color: #555;
+        }
+        .error-message {
+             color: red;
+             text-align: center;
+             padding: 20px;
+             font-weight: bold;
+         }
+
+        /* --- Style for the custom home marker --- */
+        .home-marker {
+            width: 30px; /* Adjust size as needed */
+            height: 30px; /* Adjust size as needed */
+            /* Replace with your Base64 encoded SVG or image URL */
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMTIgMyAyIDEyaDN2OGg2di02aDJ2NmhoNlYxMmgzTDEyIDN6IiBmaWxsPSIjMDA3YmZmIi8+PC9zdmc+'); /* A simple blue house icon */
+            background-size: 100%;
+            background-repeat: no-repeat;
+            cursor: pointer; /* Make it look clickable */
+        }
+        /* Optional: Add a hover effect */
+        .home-marker:hover {
+             opacity: 0.8;
+        }
+
+         /* Responsive adjustments */
+         @media (max-width: 600px) {
+            input[type="text"] {
+                width: calc(100% - 10px); /* Adjust width for smaller screens */
+                margin-right: 0;
+                margin-bottom: 10px;
+                display: block; /* Stack input and button */
+            }
+             button {
+                 width: 100%;
+             }
+            .container {
+                padding: 15px;
+            }
+             #map-container {
+                 height: 400px; /* Slightly reduce map height on small screens */
+             }
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Find Locations by Disease</h1>
+
+        <form method="post" id="searchForm">
+            <label for="disease_name">Enter Disease:</label>
+            <input type="text" id="disease_name" name="disease_name" value="{{ search_disease if search_disease }}" placeholder="e.g., Fever, Cold" required>
+            <button type="submit">Search</button>
+            {# Hidden inputs to send user location #}
+            <input type="hidden" id="user_lat" name="user_lat" value="{{ user_lat if user_lat is not none }}">
+            <input type="hidden" id="user_lon" name="user_lon" value="{{ user_lon if user_lon is not none }}">
+        </form>
+
+        <div id="location-status">Attempting to get your location...</div>
+
+        {% if search_disease is none %}
+             <p>Enter a disease name in the box above to find relevant locations from your CSV data.</p>
+        {% else %}
+             <p>Found {{ locations|length }} locations treating "{{ search_disease }}":</p>
+        {% endif %}
+
+
+        <div id="map-container">
+            <div id="map">
+                 {# Placeholders shown initially or if no results found #}
+                 {% if search_disease is none %}
+                      <div class="map-placeholder">Map will appear here after you search.</div>
+                 {% elif not locations %}
+                      <div class="map-placeholder">No locations found treating "{{ search_disease }}".<br>Try a different search term or check your CSV data.</div>
+                 {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Mapbox GL JS Script -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <!-- Polyline decoding library -->
+    <script src="https://unpkg.com/@mapbox/polyline@1.1.1/src/polyline.js"></script>
+
+    <script>
+        // Get variables passed from Flask
+        const mapboxToken = {{ mapbox_token | tojson }};
+        const locations = {{ locations | tojson }}; // This includes route data if user location was available
+        const initialMapCenter = {{ map_center | tojson }}; // [lon, lat]
+        const initialMapZoom = {{ map_zoom | tojson }};
+        const searchDisease = {{ search_disease | tojson }}; // The original searched term
+        const flaskUserLat = {{ user_lat | tojson }}; // User lat passed from Flask (if successfully received)
+        const flaskUserLon = {{ user_lon | tojson }}; // User lon passed from Flask
+
+        // Get elements
+        const userLatInput = document.getElementById('user_lat');
+        const userLonInput = document.getElementById('user_lon');
+        const locationStatusDiv = document.getElementById('location-status');
+        const mapContainerDiv = document.getElementById('map-container');
+        const mapDiv = document.getElementById('map');
+
+        let userLocationMarker = null; // To store the user's location marker
+
+
+        // --- Get User Location (Client-side) ---
+        function getUserLocation() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        console.log("User location obtained:", lat, lon);
+                        userLatInput.value = lat;
+                        userLonInput.value = lon;
+                        locationStatusDiv.textContent = `Your location: Lat ${lat.toFixed(4)}, Lon ${lon.toFixed(4)}`;
+                        locationStatusDiv.style.color = '#007bff'; // Blue color
+
+                        // Optional: If map is already loaded, add user marker immediately
+                        // This ensures the user marker appears even on the initial load if location is granted quickly
+                        if (window.mapboxMapInstance) {
+                            addUserLocationMarker(window.mapboxMapInstance, lat, lon);
+                            // If this is the initial load and no search results yet,
+                            // center the map on the user's location immediately
+                            if (!searchDisease && (!locations || locations.length === 0)) {
+                                console.log("Centering map on user location after getting coordinates.");
+                                window.mapboxMapInstance.setCenter([lon, lat]);
+                                window.mapboxMapInstance.setZoom(initialMapZoom + 1); // Slightly zoom in
+                            } else if (locations && locations.length > 0) {
+                                // If locations are already on the map (e.g., back button or page refresh after search),
+                                // refit bounds to include the new user marker
+                                fitMapToBounds(window.mapboxMapInstance);
+                            }
+                        }
+                    },
+                    function(error) {
+                        console.error("Error getting user location:", error);
+                        let errorMessage = "Could not get your location.";
+                        switch (error.code) {
+                            case error.PERMISSION_DENIED:
+                                errorMessage += " Please allow location access for route calculations.";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                errorMessage += " Location information is unavailable.";
+                                break;
+                            case error.TIMEOUT:
+                                errorMessage += " The request to get user location timed out.";
+                                break;
+                            case error.UNKNOWN_ERROR:
+                                errorMessage += " An unknown error occurred.";
+                                break;
+                        }
+                        locationStatusDiv.textContent = errorMessage;
+                        locationStatusDiv.className = 'error';
+                        // Clear hidden fields if location fails
+                        userLatInput.value = '';
+                        userLonInput.value = '';
+                    },
+                    { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 } // Options for geolocation
+                );
+            } else {
+                locationStatusDiv.textContent = "Geolocation is not supported by your browser. Cannot calculate routes.";
+                locationStatusDiv.className = 'error';
+                 userLatInput.value = '';
+                 userLonInput.value = '';
+            }
+        }
+
+        // --- Add User Location Marker ---
+        function addUserLocationMarker(map, lat, lon) {
+             // Remove existing user marker if it exists
+             if (userLocationMarker !== null) {
+                 userLocationMarker.remove();
+             }
+
+             // Create a custom HTML element for the marker
+             const el = document.createElement('div');
+             el.className = 'home-marker'; // Apply the CSS class defined in style block
+
+             // Create a popup for the user marker
+             const popup = new mapboxgl.Popup({ offset: 25 })
+                 .setHTML('<b>Your Location</b>');
+
+
+             // Add new marker using the custom element
+             userLocationMarker = new mapboxgl.Marker({
+                 element: el,
+                 anchor: 'bottom' // Anchor the bottom-center of the icon to the coordinates
+             })
+             .setLngLat([lon, lat]) // Mapbox uses [lon, lat]
+             .setPopup(popup) // Add the popup to the marker
+             .addTo(map);
+
+             console.log("User location marker added.");
+        }
+
+
+        // --- Draw Route Polyline ---
+        function drawRoute(map, routeGeometryEncoded, locationIndex) {
+            if (!routeGeometryEncoded) {
+                 console.warn(`No route geometry for location index ${locationIndex}. Skipping polyline drawing.`);
+                 return;
+            }
+            try {
+                // Decode the polyline string to an array of [lat, lon] pairs
+                const decodedPolyline = polyline.decode(routeGeometryEncoded);
+
+                // Mapbox GL JS expects coordinates as [lon, lat] for GeoJSON
+                const geojsonCoordinates = decodedPolyline.map(coord => [coord[1], coord[0]]);
+
+                const geojsonFeature = {
+                    type: 'Feature',
+                    properties: {},
+                    geometry: {
+                        type: 'LineString',
+                        coordinates: geojsonCoordinates
+                    }
+                };
+
+                const sourceId = 'route-source-' + locationIndex;
+                const layerId = 'route-layer-' + locationIndex;
+
+                // Add source and layer
+                // We don't need to remove old layers here because we recreate the map instance
+                // on every POST request (which reloads the page). If using AJAX, we'd manage layers.
+
+                map.addSource(sourceId, {
+                    type: 'geojson',
+                    data: geojsonFeature
+                });
+
+                map.addLayer({
+                    id: layerId,
+                    type: 'line',
+                    source: sourceId,
+                    layout: {
+                        'line-join': 'round',
+                        'line-cap': 'round'
+                    },
+                    paint: {
+                        'line-color': '#007bff', // Blue line matching marker/button
+                        'line-width': 4,
+                        'line-opacity': 0.7
+                    }
+                });
+                console.log(`Route layer ${layerId} added.`);
+
+            } catch (e) {
+                console.error(`Error decoding or drawing polyline for location index ${locationIndex}:`, e);
+            }
+        }
+
+        // --- Fit Map to Bounds ---
+        function fitMapToBounds(map) {
+             const bounds = new mapboxgl.LngLatBounds();
+             let totalMarkers = 0;
+
+             // Include user location marker if it exists
+             if (userLocationMarker) {
+                 bounds.extend(userLocationMarker.getLngLat());
+                 totalMarkers++;
+             }
+
+             // Include filtered location markers
+             if (locations && locations.length > 0) {
+                 locations.forEach(location => {
+                     bounds.extend([location.lon, location.lat]);
+                     totalMarkers++;
+                 });
+             }
+
+             // Only fit if there are any markers
+             if (totalMarkers > 0) {
+                 map.fitBounds(bounds, {
+                     padding: totalMarkers > 1 ? 50 : 150, // Adjust padding based on number of markers
+                     duration: 1000 // Optional: Smooth animation
+                 });
+             } else {
+                 // If no markers (e.g., CSV loaded but no search results), revert to initial center/zoom
+                 map.setCenter(initialMapCenter);
+                 map.setZoom(initialMapZoom);
+             }
+        }
+
+
+        // --- Initialize Mapbox Map ---
+        // Only initialize map if token is available and not the placeholder
+        if (mapboxToken && mapboxToken !== "YOUR_MAPBOX_ACCESS_TOKEN") {
+
+             mapboxgl.accessToken = mapboxToken;
+
+             // Remove the placeholder div if it exists inside the map div
+             const placeholder = mapDiv.querySelector('.map-placeholder');
+             if (placeholder) {
+                 placeholder.remove();
+             }
+
+             // Initialize map
+             const map = new mapboxgl.Map({
+                 container: 'map', // container ID
+                 style: 'mapbox://styles/mapbox/streets-v11', // Choose a style
+                 center: initialMapCenter, // starting position [lng, lat] - could be user location if passed
+                 zoom: initialMapZoom // starting zoom
+             });
+
+             // Store map instance globally for potential later use (e.g., adding user marker after location is found)
+             window.mapboxMapInstance = map;
+
+             map.on('load', () => {
+                 console.log('Map loaded.');
+
+                 // Add user location marker if location was successfully passed from Flask
+                 if (flaskUserLat !== null && flaskUserLon !== null) {
+                     addUserLocationMarker(map, flaskUserLat, flaskUserLon);
+                 } else {
+                      console.log("User location not available from Flask initially. Will attempt to get it via browser API.");
+                 }
+
+
+                 // Add markers and routes for each location found
+                 if (locations && locations.length > 0) {
+                     locations.forEach((location, index) => { // Use index for unique layer IDs
+                         // Create popup HTML content
+                         let popupContent = `
+                             <div class="marker-details">
+                                 <strong>${location.name || 'Location Details'}</strong>
+                                 <p>Treats: ${location.disease_info}</p>
+                         `;
+                         if (location.details) {
+                             popupContent += `<p>${location.details}</p>`;
+                         }
+                         // Add route info to the popup if available
+                         if (location.travel_time_text || location.travel_distance_text) {
+                            popupContent += `
+                                <div class="route-info">
+                                    <p>Time: ${location.travel_time_text}</p>
+                                    <p>Distance: ${location.travel_distance_text}</p>
+                                </div>
+                            `;
+                         }
+                         popupContent += `
+                                 <p>Lat: ${location.lat.toFixed(4)}<br>Lon: ${location.lon.toFixed(4)}</p>
+                             </div>
+                         `;
+
+                         // Create a popup
+                         const popup = new mapboxgl.Popup({ offset: 25 })
+                             .setHTML(popupContent);
+
+                         // Create a marker and add to the map
+                         new mapboxgl.Marker()
+                             .setLngLat([location.lon, location.lat]) // Mapbox uses [lon, lat]
+                             .setPopup(popup) // Add the popup to the marker
+                             .addTo(map);
+
+                         // Draw the route if geometry is provided
+                         if (location.route_geometry_encoded) {
+                            drawRoute(map, location.route_geometry_encoded, index);
+                         }
+                     });
+
+                    // Fit the map to bounds including user location and found locations
+                    fitMapToBounds(map);
+
+
+                 } else {
+                    // If no locations found from search, but user location *was* passed from Flask,
+                    // fit bounds to just the user location. Otherwise, it stays on initial center/zoom.
+                    if (flaskUserLat !== null && flaskUserLon !== null) {
+                         fitMapToBounds(map); // This will fit bounds around just the user marker
+                    } else {
+                        // Fallback if no search results AND no user location from Flask
+                        map.setCenter(initialMapCenter);
+                        map.setZoom(initialMapZoom);
+                    }
+                 }
+
+
+             }); // End map.on('load')
+
+             // Optional: Add navigation controls
+             map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+
+             // Optional: Add a scale bar
+             map.addControl(new mapboxgl.ScaleControl());
+
+
+         } else {
+             console.error("Mapbox Token is missing or invalid. Cannot initialize map.");
+             // Display an error message instead of the map
+             mapContainerDiv.innerHTML = '<div class="error-message">Mapbox Token Missing or Invalid.<br>Please check your .env file and ensure MAPBOX_TOKEN is set correctly.</div>';
+             mapContainerDiv.style.height = 'auto'; // Adjust container height
+             mapContainerDiv.style.border = 'none'; // Remove border for error state
+             mapContainerDiv.style.boxShadow = 'none'; // Remove shadow
+             // Update location status as map won't work
+             locationStatusDiv.textContent = "Map functionality disabled due to missing Mapbox Token.";
+             locationStatusDiv.className = 'error';
+         }
+
+         // --- Call getUserLocation when the page loads ---
+         // This will attempt to get the user's location as soon as the page is ready.
+         // The location will be put into the hidden form fields, ready for the next search submission.
+         // If the map is already loaded (e.g., on a refresh after search), it also adds the marker.
+         getUserLocation();
+
+    </script>
+</body>
+</html>
