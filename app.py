@@ -34,7 +34,7 @@ except Exception as e:
 
 # --- CSV Configuration ---
 # !!! IMPORTANT: REPLACE WITH YOUR ACTUAL FILE PATH !!!
-csv_file_path = r'E:\Ungoppandahhh\doc.csv'
+csv_file_path = r'doc.csv'
 # !!! IMPORTANT: REPLACE WITH YOUR ACTUAL COLUMN NAMES !!!
 latitude_column = 'LAT'
 longitude_column = 'LON'
